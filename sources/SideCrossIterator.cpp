@@ -37,6 +37,8 @@ MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operat
 
 MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator++()
 {
+    if(_stepsNo == this->_container._size) throw std::runtime_error("Cant move over the end");
+
     if(_moveFromStart)
     {
         if(_pElementFromStart)

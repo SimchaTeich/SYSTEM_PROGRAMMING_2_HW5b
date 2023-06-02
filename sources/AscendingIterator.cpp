@@ -38,6 +38,7 @@ MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operat
         _pElement = _pElement->getAscNext();
         _stepsNo++;
     }
+    else throw std::runtime_error("Cant move over the end");
 
     return *this;
 };

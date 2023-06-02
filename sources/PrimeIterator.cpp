@@ -39,6 +39,7 @@ MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator++()
         _pElement = _pElement->getPrimeNext();
         _stepsNo++;
     }
+    else throw std::runtime_error("Cant move over the end");
 
     return *this;
 };
