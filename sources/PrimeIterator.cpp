@@ -7,7 +7,7 @@ MagicalContainer::PrimeIterator::PrimeIterator(MagicalContainer& container)
     : _container(container)
 {
     _stepsNo = 0;
-    _pElement = nullptr;
+    _pElement = container._primeHead;
 };
 
 
@@ -78,14 +78,15 @@ bool MagicalContainer::PrimeIterator::operator<(const PrimeIterator& other) cons
 
 MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::begin()
 {
-    PrimeIterator newIterator(_container);
-    newIterator._pElement = _container._primeHead;
-
-    return newIterator;
+    return PrimeIterator (_container);
 };
 
 
 MagicalContainer::PrimeIterator MagicalContainer::PrimeIterator::end()
 {
-    return PrimeIterator(_container);
+    PrimeIterator it(_container);
+    it._stepsNo = _container._size;
+    it._pElement = nullptr;
+
+    return it;
 };
