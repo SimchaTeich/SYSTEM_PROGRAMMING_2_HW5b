@@ -7,8 +7,8 @@ MagicalContainer::SideCrossIterator::SideCrossIterator(MagicalContainer& contain
     : _container(container)
 {
     _stepsNo = 0;
-    _pElementFromStart = nullptr;
-    _pElementFromEnd = nullptr;
+    _pElementFromStart = container._head;
+    _pElementFromEnd = container._tail;
     _moveFromStart = true;           // Using as ping-pong flag say from where to go
 };
 
@@ -104,17 +104,15 @@ bool MagicalContainer::SideCrossIterator::operator<(const SideCrossIterator& oth
 
 MagicalContainer::SideCrossIterator MagicalContainer::SideCrossIterator::begin()
 {
-    SideCrossIterator newIterator(_container);
-    newIterator._pElementFromStart = _container._head;
-    newIterator._pElementFromEnd = _container._tail;
-
-    return newIterator;
+    return SideCrossIterator(_container);
 };
 
 
 MagicalContainer::SideCrossIterator MagicalContainer::SideCrossIterator::end()
 {
     SideCrossIterator newIterator(_container);
+    newIterator._pElementFromStart = nullptr;
+    newIterator._pElementFromEnd = nullptr;
     newIterator._stepsNo = _container._size;
     return newIterator;
 };
