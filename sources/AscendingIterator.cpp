@@ -7,7 +7,7 @@ MagicalContainer::AscendingIterator::AscendingIterator(MagicalContainer& contain
     : _container(container)
 {
     _stepsNo = 0;
-    _pElement = nullptr;
+    _pElement =  _container._head;
 };
 
 
@@ -77,14 +77,14 @@ bool MagicalContainer::AscendingIterator::operator<(const AscendingIterator& oth
 
 MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::begin()
 {
-    AscendingIterator newIterator(_container);
-    newIterator._pElement = _container._head;
-
-    return newIterator;
+    return AscendingIterator(_container);
 };
 
 
 MagicalContainer::AscendingIterator MagicalContainer::AscendingIterator::end()
 {
-    return AscendingIterator(_container);
+    AscendingIterator it(_container);
+    it._stepsNo = _container._size;
+    it._pElement = nullptr;
+    return it;
 };
