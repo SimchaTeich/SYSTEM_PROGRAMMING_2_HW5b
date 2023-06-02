@@ -23,6 +23,8 @@ MagicalContainer::PrimeIterator::PrimeIterator(PrimeIterator& other)
 
 MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator=(const PrimeIterator& other)
 {
+    if(&_container != &other._container) throw std::runtime_error("Containers are not the same");
+
     _container = other._container;
     _pElement = other._pElement;
     _stepsNo = other._stepsNo;

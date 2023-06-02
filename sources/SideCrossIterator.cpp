@@ -25,6 +25,8 @@ MagicalContainer::SideCrossIterator::SideCrossIterator(SideCrossIterator& other)
 
 MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator=(const SideCrossIterator& other)
 {
+    if(&_container != &other._container) throw std::runtime_error("Containers are not the same");
+
     _container = other._container;
     _pElementFromStart = other._pElementFromStart;
     _pElementFromEnd = other._pElementFromEnd;

@@ -23,6 +23,8 @@ MagicalContainer::AscendingIterator::AscendingIterator(AscendingIterator& other)
 
 MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator=(const AscendingIterator& other)
 {
+    if(&_container != &other._container) throw std::runtime_error("Containers are not the same");
+
     _container = other._container;
     _pElement = other._pElement;
     _stepsNo = other._stepsNo;
