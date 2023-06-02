@@ -59,6 +59,7 @@ void MagicalContainer::removeElement(int value)
         delete pRemoved;
         _size--;
     }
+    else throw std::runtime_error("Can't remove value doesn't exist!");
 };
 
 int MagicalContainer::size() const
